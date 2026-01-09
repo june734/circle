@@ -14,7 +14,7 @@ html, body {
   overflow-x: hidden;
 }
 
-/* 🌅 天空背景动画 */
+/*  天空背景动画 */
 body {
   background: linear-gradient(180deg, #ff6a5c, #ff9a5a, #3b6cff, #0b1d3a);
   background-size: 100% 400%;
@@ -125,7 +125,7 @@ button {
 <body>
 
 <header>
-  <h1>🌅 Sunset Ocean English</h1>
+  <h1> Circle's English</h1>
   <p>Tap to listen · Feel the waves</p>
 </header>
 
@@ -153,11 +153,11 @@ while (words.length < 100) {
   words.push({ ...b, word: b.word + " " + (words.length + 1) });
 }
 
-function speak(t) {
-  const u = new SpeechSynthesisUtterance(t);
-  u.lang = "en-US";
-  speechSynthesis.cancel();
-  speechSynthesis.speak(u);
+function speak(word) {
+  const audio = new Audio(
+    "https://dict.youdao.com/dictvoice?type=2&audio=" + encodeURIComponent(word)
+  );
+  audio.play();
 }
 
 const list = document.getElementById("list");
